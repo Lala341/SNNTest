@@ -82,7 +82,7 @@ print("RateBased")
 converter = (RateBased(input_type='poisson', 
                             norm_data=[x_norm],
                             norm_method='spike-norm',
-                            spike_norm_time=2500))
+                            spike_norm_time=2500, data_norm_time=2500))
 
 # Convert and compile ML GeNN model
 mlg_model = Model.convert_tf_model(
