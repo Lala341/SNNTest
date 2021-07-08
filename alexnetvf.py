@@ -6,8 +6,8 @@ tf.config.gpu.set_per_process_memory_growth(True)
 
 for gpu in tf.config.experimental.list_physical_devices('GPU'):
     tf.config.experimental.set_memory_growth(gpu, True)
-    tf.config.experimental.set_virtual_device_configuration(gpu,
-    [tf.config.LogicalDeviceConfiguration(memory_limit=10)])
+    tf.config.experimental.set_virtual_device_configuration(gpu, [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=1024)])
+    print("tf.config.experimental.get_memory_growth(gpu)")
     print(tf.config.experimental.get_memory_growth(gpu))
 
 
