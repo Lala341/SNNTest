@@ -2,6 +2,7 @@ import tensorflow as tf
 
 for gpu in tf.config.experimental.list_physical_devices('GPU'):
     tf.config.experimental.set_memory_growth(gpu, True)
+    print(tf.config.experimental.get_memory_growth(gpu))
 
 from tensorflow.keras import (models, layers, datasets, callbacks, optimizers,
                               initializers, regularizers)
