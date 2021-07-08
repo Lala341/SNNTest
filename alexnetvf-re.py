@@ -77,6 +77,7 @@ tf_model.evaluate(x_test, y_test)
 print("TF evaluation:%f" % (perf_counter() - tf_eval_start_time))
 
 few_spike =True
+print("RateBased")
 # Create, suitable converter to convert TF model to ML GeNN
 converter = (RateBased(input_type='poisson', 
                             norm_data=[x_norm],
