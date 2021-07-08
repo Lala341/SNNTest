@@ -81,7 +81,7 @@ print("RateBased")
 # Create, suitable converter to convert TF model to ML GeNN
 converter = (RateBased(input_type='poisson', 
                             norm_data=[x_norm],
-                            norm_method='data-norm',
+                            norm_method='spike-norm',
                             spike_norm_time=10, norm_time=10))
 
 # Convert and compile ML GeNN model
