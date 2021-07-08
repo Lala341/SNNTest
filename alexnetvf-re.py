@@ -35,7 +35,7 @@ from sklearn.preprocessing import OneHotEncoder
 print(tf.test.is_gpu_available())
 print(tf.test.is_built_with_cuda())
 
-n_norm_samples=1000
+n_norm_samples=2000
 #Load Dataset
 (x_train, y_train), (x_test, y_test) = datasets.cifar10.load_data()
 
@@ -81,8 +81,7 @@ print("RateBased")
 # Create, suitable converter to convert TF model to ML GeNN
 converter = (RateBased(input_type='poisson', 
                             norm_data=[x_norm],
-                            norm_method='data-norm',
-                            spike_norm_time=10))
+                            norm_method='data-norm'))
 
 # Convert and compile ML GeNN model
 mlg_model = Model.convert_tf_model(
@@ -91,7 +90,7 @@ mlg_model = Model.convert_tf_model(
         kernel_profiling=True)
 
 
-time = 10
+time = 2500
 mlg_eval_start_time = perf_counter()
 acc, spk_i, spk_t = mlg_model.evaluate([x_test], [y_test], time, save_samples=[])
 print("MLG evaluation:%f" % (perf_counter() - mlg_eval_start_time))
