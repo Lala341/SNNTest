@@ -91,7 +91,7 @@ mlg_model = Model.convert_tf_model(
         kernel_profiling=True)
 
 
-time = 10 if few_spike else 2500
+time = 2500
 mlg_eval_start_time = perf_counter()
 acc, spk_i, spk_t = mlg_model.evaluate([x_test], [y_test], time, save_samples=[])
 print("MLG evaluation:%f" % (perf_counter() - mlg_eval_start_time))
