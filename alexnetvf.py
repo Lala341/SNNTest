@@ -1,8 +1,5 @@
 import tensorflow as tf
 
-tf.config.gpu.set_per_process_memory_fraction(0.35)
-tf.config.gpu.set_per_process_memory_growth(True)
-
 
 for gpu in tf.config.experimental.list_physical_devices('GPU'):
     tf.config.experimental.set_memory_growth(gpu, True)
