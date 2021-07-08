@@ -17,6 +17,8 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from six import iteritems
 import cv2
 from time import perf_counter
+from sklearn.preprocessing import OneHotEncoder
+
 
 #check if tensorflow is running on GPU
 print(tf.test.is_gpu_available())
