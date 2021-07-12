@@ -82,7 +82,7 @@ print("RateBased")
 converter = (RateBased(input_type='poisson', 
                             norm_data=[x_norm],
                             norm_method='data-norm',
-                            spike_norm_time=10000))
+                            spike_norm_time=1))
 
 # Convert and compile ML GeNN model
 mlg_model = Model.convert_tf_model(
@@ -91,7 +91,7 @@ mlg_model = Model.convert_tf_model(
         kernel_profiling=True)
 
 
-time = 10000
+time = 1
 mlg_eval_start_time = perf_counter()
 acc, spk_i, spk_t = mlg_model.evaluate([x_test], [y_test], time, save_samples=[])
 print("MLG evaluation:%f" % (perf_counter() - mlg_eval_start_time))
